@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { Exo, Inter } from "next/font/google";
 import "./globals.css";
 import React from "react";
-import Navbar from "@/Components/Navbar/Navbar";
-import Footer from "@/Components/Footer/Footer";
+import Navbar from "@/components/Navbar/Navbar";
+import Footer from "@/components/Footer/Footer";
 import { cn } from "@/lib/utils";
+import { Toaster } from "sonner";
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
@@ -28,6 +29,7 @@ export default function RootLayout({children}: Readonly<Rootlayout>)
       <body className="min-h-full flex flex-col">
         <Navbar/>
         {children}
+        <Toaster position="top-right" richColors/>
         <Footer/>
       </body>
     </html>

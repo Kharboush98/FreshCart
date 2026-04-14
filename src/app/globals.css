@@ -13,13 +13,14 @@
   --background-green: #F0FDF4;
   --background-footer: #101828;
 
-  --primary: oklch(0.205 0 0);
+  --primary: #16A34A;
   --primary-light: #DCFCE7;
   --primary-lightest: #F0FDF4;
   --secondary: oklch(0.97 0 0);
 
   --titles: #1E2939;
   --description: #6A7282;
+
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);

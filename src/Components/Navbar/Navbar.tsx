@@ -35,38 +35,38 @@ export default function Navbar() {
 
             <div className="flex items-center gap-6">
               <div className="flex items-center gap-4 text-gray-500">
-                <a
+                <Link
                   href="tel:+18001234567"
                   className="flex items-center gap-1.5 hover:text-primary-600 hover:text-green-600"
                 >
                   <FaPhone />
                   <span>+1 (800) 123-4567</span>
-                </a>
-                <a
+                </Link>
+                <Link
                   href="mailto:support@freshcart.com"
                   className="flex items-center gap-1.5 hover:text-primary-600 hover:text-green-600"
                 >
                   <CiMail />
                   <span>support@freshcart.com</span>
-                </a>
+                </Link>
               </div>
 
               <span className="w-px h-4 bg-gray-200" />
               <div className="flex items-center gap-4">
-                <a
+                <Link
                   className="flex items-center gap-1.5 text-gray-600 hover:text-primary-600 hover:text-green-600"
                   href="/login"
                 >
                   <CiUser />
                   <span>Sign In</span>
-                </a>
-                <a
+                </Link>
+                <Link
                   className="flex items-center gap-1.5 text-gray-600 hover:text-primary-600 hover:text-green-600"
                   href="/register"
                 >
                   <FaUserPlus />
                   <span>Sign Up</span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -98,19 +98,19 @@ export default function Navbar() {
               </form>
 
               <nav className="hidden xl:flex items-center gap-6">
-                <a
+                <Link
                   className="text-gray-700 hover:text-primary-600 font-medium transition-colors"
                   href="/"
                 >
                   Home
-                </a>
+                </Link>
 
-                <a
+                <Link
                   className="text-gray-700 hover:text-primary-600 font-medium transition-colors"
                   href="/products"
                 >
                   Shop
-                </a>
+                </Link>
 
                 <div className="relative group">
                   <button className="flex items-center gap-1.5 text-gray-700 hover:text-primary-600 font-medium transition-colors py-2"
@@ -123,50 +123,50 @@ export default function Navbar() {
                   </button>
                   <div className="absolute top-full left-0 pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                     <div className="bg-white border border-gray-100 rounded-xl shadow-xl py-2 min-w-50">
-                      <a
+                      <Link
                         className="block px-4 py-2.5 text-gray-600 hover:text-primary-600 hover:bg-primary-50 transition-colors"
                         href="/categories"
                       >
                         All Categories
-                      </a>
-                      <a
+                      </Link>
+                      <Link
                         className="block px-4 py-2.5 text-gray-600 hover:text-primary-600 hover:bg-primary-50 transition-colors"
                         href="/products?category=6439d58a0049ad0b52b9003f"
                       >
                         Electronics
-                      </a>
-                      <a
+                      </Link>
+                      <Link
                         className="block px-4 py-2.5 text-gray-600 hover:text-primary-600 hover:bg-primary-50 transition-colors"
                         href="/products?category=6439d5b90049ad0b52b90048"
                       >
                         Women's Fashion
-                      </a>
-                      <a
+                      </Link>
+                      <Link
                         className="block px-4 py-2.5 text-gray-600 hover:text-primary-600 hover:bg-primary-50 transition-colors"
                         href="/products?category=6439d2d167d9aa4ca970649f"
                       >
                         Men's Fashion
-                      </a>
-                      <a
+                      </Link>
+                      <Link
                         className="block px-4 py-2.5 text-gray-600 hover:text-primary-600 hover:bg-primary-50 transition-colors"
                         href="/products?category=6439d40367d9aa4ca97064a8"
                       >
                         Beauty &amp; Health
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
 
-                <a
+                <Link
                   className="text-gray-700 hover:text-primary-600 font-medium transition-colors"
                   href="/brands"
                 >
                   Brands
-                </a>
+                </Link>
               </nav>
 
               <div className="flex items-center gap-1 lg:gap-2">
-                <a
+                <Link
                   className="hidden lg:flex items-center gap-2 pr-3 mr-2 border-r border-gray-200 hover:opacity-80 transition-opacity"
                   href="/contact"
                 >
@@ -177,8 +177,8 @@ export default function Navbar() {
                     <div className="text-gray-400">Support</div>
                     <div className="font-semibold text-gray-700">24/7 Help</div>
                   </div>
-                </a>
-                <a
+                </Link>
+                <Link
                   className="relative p-2.5 rounded-full hover:bg-gray-100 transition-colors group"
                   title="Wishlist"
                   href="/wishlist"
@@ -186,8 +186,8 @@ export default function Navbar() {
                   onMouseLeave={()=> setIsHoveredWishlist(false)}
                 >
                   {isHoveredWishlist ? <FaRegHeart className="text-2xl text-primary" /> : <FaRegHeart className="text-2xl text-description"/>}
-                </a>
-                <a
+                </Link>
+                <Link
                   className="relative p-2.5 rounded-full hover:bg-gray-100 transition-colors group"
                   title="Cart"
                   href="/cart"
@@ -196,14 +196,14 @@ export default function Navbar() {
                 >
                     {isHoveredCart ? <FaShoppingCart className="text-2xl text-primary"/> : <FaShoppingCart className="text-2xl text-description"/>}
                   
-                </a>
-                <a
+                </Link>
+                <Link
                   className="hidden lg:flex items-center gap-2 ml-2 px-5 py-2.5 rounded-full bg-primary hover:bg-primary/80 text-white text-sm font-semibold transition-colors shadow-sm shadow-primary-600/20"
                   href="/login"
                 >
                   <CiUser className="text-[16px]"/>
                   Sign In
-                </a>
+                </Link>
               </div>
             </div>
           </div>

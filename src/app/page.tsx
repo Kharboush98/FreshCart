@@ -1,6 +1,6 @@
-import AllCategories from "@/Components/AllCategories/AllCategories";
-import Deals from "@/Components/Deals/Deals";
-import MainHeader from "@/Components/MainHeader/MainHeader";
+import AllCategories from "@/components/AllCategories/AllCategories";
+import Deals from "@/components/Deals/Deals";
+import MainHeader from "@/components/MainHeader/MainHeader";
 import Image from "next/image";
 import Products from "./(main-site)/products/page";
 
