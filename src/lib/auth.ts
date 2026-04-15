@@ -6,7 +6,7 @@ export async function getUsertoken(){
 
     const decodedToken = (await cookies()).get("next-auth.session-token")?.value || (await cookies()).get("__Secure-next-auth.session-token")?.value;
 
-    const token = await decode({token : decodedToken , secret : process.env.NEXTAUTH_SECRET !})
+    const token = await decode({token : decodedToken , secret : process.env.AUTH_SECRET !})
 
     // console.log(token?.token , "decoded token");
     return token?.token

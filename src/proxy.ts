@@ -12,7 +12,7 @@ export async function proxy(request: NextRequest) {
     //route handler or proxy
     const token =  await getToken({
         req : request,
-        secret: process.env.NEXTAUTH_SECRET,
+        secret: process.env.AUTH_SECRET,
     });
 
     const isAuthPages = ["/login" , "/register"].includes(pathname)
