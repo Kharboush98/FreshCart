@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import { cn } from "@/lib/utils";
 import { Toaster } from "sonner";
+import AuthProvider from "@/context/auth-provider";
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
@@ -26,11 +27,15 @@ export default function RootLayout({children}: Readonly<Rootlayout>)
 {
   return (
     <html lang="en" className={cn("h-full", "antialiased", exo.className, "font-sans", inter.variable)} suppressHydrationWarning>
-      <body className="min-h-full flex flex-col">
-        <Navbar/>
-        {children}
-        <Toaster position="top-right" richColors/>
-        <Footer/>
+      <body className="min-h-full flex flex-col" suppressHydrationWarning>
+        <AuthProvider>
+
+          <Navbar/>
+          {children}
+          <Toaster position="top-right" richColors/>
+          <Footer/>
+          
+        </AuthProvider>
       </body>
     </html>
   );

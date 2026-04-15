@@ -19,6 +19,8 @@ import { loginSchema, loginTypeSchema } from '@/schemas/auth.schemas';
 import { useRouter } from 'next/navigation';
 import { loginUser } from '@/lib/auth.services';
 import { toast } from 'sonner';
+
+import { signIn, signOut } from "next-auth/react";
     
 
 export default function Login() {
@@ -35,17 +37,35 @@ export default function Login() {
 
     async function handleLogin(data: loginTypeSchema)
     {
-        const response = await loginUser(data);
-        console.log(response);
+        // const response = await loginUser(data);
+        // console.log(response);
 
-        if(response.message === "success")
+        // if(response.message === "success")
+        // {
+        //     router.push("/");
+        //     toast.success("Logged in Successfully")
+        // } else {
+        //     toast.error("User Log in Failed")
+        // }
+
+
+        const response = await signIn("credentials", {
+            email: data.email,
+            password : data.password,
+            redirect: false,
+            callbackUrl: "/",
+        });
+
+        // console.log(response)
+        if (response?.ok)
         {
-            router.push("/");
+            router.push("/")
             toast.success("Logged in Successfully")
         } else {
-            toast.error("User Log in Failed")
+            toast.error(response?.error || "User Log in Failed")
         }
     }
+
 
   return (
     <>

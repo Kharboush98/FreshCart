@@ -10,7 +10,7 @@ export default async function AllCategories() {
         })
     
         const data = await response.json();
-        console.log(data.data);
+        // console.log(data.data);
     
         const categories : CategoryI[] = data.data;
 
