@@ -3,6 +3,7 @@ export interface CartI{
     message: string;
     numOfCartItems: number;
     data: CartDataI;
+    cartId : string;
 }
 
 export interface CartDataI {
@@ -55,3 +56,19 @@ export interface BrandI {
   slug: string
   image: string
 }
+
+
+// Checkout 
+
+export interface ShipDataI{
+  shippingAddress: {
+    city : string,
+    details: string,
+    phone: string,
+    postalCode: string
+  }
+}
+
+//whislist 
+
+// export interface 

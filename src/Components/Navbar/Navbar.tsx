@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { CiMail, CiUser } from "react-icons/ci";
 import { FaGift, FaHeadset, FaHeart, FaRegHeart, FaShoppingCart, FaSignOutAlt, FaTruck, FaUser } from "react-icons/fa";
 import { FaMagnifyingGlass, FaPhone, FaUserPlus } from "react-icons/fa6";
@@ -7,6 +7,8 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import Link from "next/link";
 import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
 import { signOut, useSession } from "next-auth/react";
+import { CartContext } from "@/context/cart-provider";
+import { Spinner } from "../ui/spinner";
 
 export default function Navbar() {
  
@@ -16,6 +18,10 @@ export default function Navbar() {
 
     const {data: session , status} = useSession();
     // console.log(session , status , "session data and status");
+
+    const [noOfWishlist , setNoOfWishlist] = useState(0);
+
+    const {noCartItems , isLoading} = useContext(CartContext);
 
     function handleLogout()
     {
@@ -138,20 +144,27 @@ export default function Navbar() {
 
               <nav className="hidden xl:flex items-center gap-6">
                 <Link
-                  className="text-gray-700 hover:text-primary-600 font-medium transition-colors"
+                  className="text-gray-700 hover:text-primary font-medium transition-colors"
                   href="/"
                 >
                   Home
                 </Link>
 
                 <Link
-                  className="text-gray-700 hover:text-primary-600 font-medium transition-colors"
+                  className="text-gray-700 hover:text-primary font-medium transition-colors"
                   href="/products"
                 >
                   Shop
                 </Link>
+                
+                <Link
+                  className="text-gray-700 hover:text-primary font-medium transition-colors"
+                  href="/categories"
+                >
+                  Categories
+                </Link>
 
-                <div className="relative group">
+                {/* <div className="relative group">
                   <button
                     className="flex items-center gap-1.5 text-gray-700 hover:text-primary-600 font-medium transition-colors py-2"
                     onMouseEnter={() => setIsHovered(true)}
@@ -198,7 +211,7 @@ export default function Navbar() {
                       </Link>
                     </div>
                   </div>
-                </div>
+                </div> */}
 
                 <Link
                   className="text-gray-700 hover:text-primary-600 font-medium transition-colors"
@@ -233,6 +246,21 @@ export default function Navbar() {
                   ) : (
                     <FaRegHeart className="text-2xl text-description" />
                   )}
+
+                  {/* number of whislists */}
+                  {
+                    noOfWishlist > 0 ? 
+                  <>
+                   <span className="absolute top-0.5 right-0.5 size-4.5 rounded-full bg-red-600 text-white text-[10px]
+                    font-bold flex items-center justify-center ring-2 ring-white">
+                      {isLoading ? <Spinner/> : noOfWishlist}
+                  </span>
+                  </> 
+                  : 
+                  <>
+
+                  </>
+                  }
                 </Link>
                 <Link
                   className="relative p-2.5 rounded-full hover:bg-gray-100 transition-colors group"
@@ -246,6 +274,20 @@ export default function Navbar() {
                   ) : (
                     <FaShoppingCart className="text-2xl text-description" />
                   )}
+
+                  {/* Cart total products counter */}
+                  {noCartItems > 0 ? 
+                  <>
+                   <span className="absolute top-0.5 right-0.5 size-4.5 rounded-full bg-primary text-white text-[10px]
+                    font-bold flex items-center justify-center ring-2 ring-white">
+                      {isLoading ? <Spinner/> : noCartItems}
+                  </span>
+                  </> 
+                  : 
+                  <>
+
+                  </>}
+                  
                 </Link>
                   
                 {session? 

@@ -10,6 +10,7 @@ import "swiper/css/pagination";
 import MainImg from "../../../public/assets/FoodcartCarousel.png";
 import { FaHeadset, FaShieldAlt, FaTruck } from "react-icons/fa";
 import { FaArrowRotateLeft } from "react-icons/fa6";
+import Link from "next/link";
 
 export default function MainHeader() {
   return (
@@ -38,12 +39,12 @@ export default function MainHeader() {
                   </h2>
                   <p>Same day delivery available</p>
                   <div className="mt-4">
-                    <a className="btn bg-white border-2 border-white/50 text-purple-500 px-6 py-2 rounded-lg" href="/">
+                    <Link className="btn bg-white border-2 border-white/50 text-purple-500 px-6 py-2 rounded-lg" href="/">
                       Order Now
-                    </a>
-                    <a className="btn bg-transparent border-2 border-white/50 text-white ml-2 px-6 py-2 rounded-lg">
+                    </Link>
+                    <Link className="btn bg-transparent border-2 border-white/50 text-white ml-2 px-6 py-2 rounded-lg" href="/">
                       Delivery Info
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -63,12 +64,12 @@ export default function MainHeader() {
                   </h2>
                   <p>Get 20% off your first order</p>
                   <div className="mt-4">
-                    <a className="bg-white text-green-500 px-6 py-2 rounded-lg font-semibold hover:scale-105 transition-transform">
+                    <Link href="/" className="bg-white text-green-500 px-6 py-2 rounded-lg font-semibold hover:scale-105 transition-transform">
                       Shop Now
-                    </a>
-                    <a className="bg-transparent border-2 border-white/50 text-white ml-2 px-6 py-2 rounded-lg font-semibold hover:scale-105 transition-transform">
+                    </Link>
+                    <Link href="/" className="bg-transparent border-2 border-white/50 text-white ml-2 px-6 py-2 rounded-lg font-semibold hover:scale-105 transition-transform">
                       View Deals
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -88,12 +89,12 @@ export default function MainHeader() {
                   </h2>
                   <p>Fresh from farm to your table</p>
                   <div className="mt-4">
-                    <a className="bg-white text-blue-500 px-6 py-2 rounded-lg">
+                    <Link href="/" className="bg-white text-blue-500 px-6 py-2 rounded-lg">
                       Shop Now
-                    </a>
-                    <a className="bg-transparent border-2 border-white/50 text-white ml-2 px-6 py-2 rounded-lg">
+                    </Link>
+                    <Link href="/" className="bg-transparent border-2 border-white/50 text-white ml-2 px-6 py-2 rounded-lg">
                       Learn More
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

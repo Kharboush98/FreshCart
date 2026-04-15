@@ -31,3 +31,9 @@ export interface Brand {
   slug: string
   image: string
 }
+
+export interface whislistProdI{
+  status: string;
+  count: number;
+  data: ProdI[];
+}

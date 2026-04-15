@@ -10,13 +10,14 @@ import {
 import Link from 'next/link';
 import { FaBoxOpen, FaCheck, FaLock, FaMinus, FaPlus, FaShieldAlt, FaShoppingBag, FaShoppingCart, FaTag, FaTrash, FaTruck } from 'react-icons/fa';
 import { ClearCart, getCart } from '@/actions/cart.actions';
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CartI, CartProductI } from "@/types/cart.type";
 import CartItem from "@/components/cart/CartItem";
 import { toast } from "sonner";
 import { Button } from "@base-ui/react";
 import { Spinner } from "@/components/ui/spinner";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { CartContext } from "@/context/cart-provider";
 
 
 
@@ -25,6 +26,8 @@ export default function cart() {
   const [products , setProducts] = useState<CartProductI[]>([])
   const [isLoading , setIsLoading] = useState(false)
   const [isLoadingClear , setIsLoadingClear] = useState(false)
+
+    const {getCartData , noCartItems , totalCartPrice} = useContext(CartContext);
 
   async function getAllProductsInCart() {
     try {
@@ -48,7 +51,7 @@ export default function cart() {
       const response = await ClearCart();
       toast.success(response.message)
       setProducts(response.data.products);
-      
+      getCartData()
     } catch (error) {
       console.log(error)
       toast.error((error as Error).message)
@@ -190,7 +193,7 @@ export default function cart() {
                   Order Summary
                 </h2>
                 <p className="text-primary-light text-sm mt-1">
-                  1 item in your cart
+                  {noCartItems} item in your cart
                 </p>
               </div>
               <div className="p-6 space-y-5">
@@ -211,18 +214,18 @@ export default function cart() {
                 <div className="space-y-3">
                   <div className="flex justify-between text-gray-600">
                     <span>Subtotal</span>
-                    <span className="font-medium text-gray-900">149 EGP</span>
+                    <span className="font-medium text-gray-900">{totalCartPrice} EGP</span>
                   </div>
                   <div className="flex justify-between text-gray-600">
                     <span>Shipping</span>
-                    <span className="font-medium text-gray-900">50 EGP</span>
+                    <span className="font-medium text-gray-900">Free</span>
                   </div>
                   <div className="border-t border-dashed border-gray-200 pt-3 mt-3">
                     <div className="flex justify-between items-baseline">
                       <span className="text-gray-900 font-semibold">Total</span>
                       <div className="text-right">
                         <span className="text-2xl font-bold text-gray-900">
-                          199
+                          {totalCartPrice}
                         </span>
                         <span className="text-sm text-gray-500 ml-1">EGP</span>
                       </div>

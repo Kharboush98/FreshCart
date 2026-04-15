@@ -17,6 +17,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { registerUser } from '@/lib/auth.services';
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
+import Link from 'next/link';
 
 
 export default function Register() {
@@ -321,12 +322,12 @@ export default function Register() {
                         <div className="text-center mt-8 pt-6 border-t border-gray-100">
                             <p className="text-gray-600">
                             New to FreshCart?
-                            <a
+                            <Link
                                 className="text-primary hover:text-primary ms-2 font-semibold cursor-pointer"
                                 href="/signup"
                             >
                                 Create an account
-                            </a>
+                            </Link>
                             </p>
                         </div>
                     </div>

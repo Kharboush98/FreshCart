@@ -21,6 +21,7 @@ import { loginUser } from '@/lib/auth.services';
 import { toast } from 'sonner';
 
 import { signIn, signOut } from "next-auth/react";
+import Link from 'next/link';
     
 
 export default function Login() {
@@ -231,12 +232,12 @@ export default function Login() {
               <div className="text-center mt-8 pt-6 border-t border-gray-100">
                 <p className="text-gray-600">
                   New to FreshCart?
-                  <a
+                  <Link
                     className="text-primary hover:text-primary ms-2 font-semibold cursor-pointer"
                     href="/signup"
                   >
                     Create an account
-                  </a>
+                  </Link>
                 </p>
               </div>
               <div className="flex items-center justify-center space-x-6 mt-6 text-xs text-gray-500">

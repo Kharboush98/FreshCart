@@ -1,3 +1,4 @@
+import AddSpecificProdToCart from "@/components/cart/AddSpecificProdToCart";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -14,6 +15,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import AddProdToWishlist from "@/components/WishList/AddProdToWishlist";
 import { getProducts } from "@/lib/api";
 
 import { ProdI } from "@/types/postType";
@@ -38,7 +40,6 @@ import {
   FaArrowsRotate,
   FaShareNodes,
 } from "react-icons/fa6";
-import { GrNext, GrPrevious } from "react-icons/gr";
 
 export default async function ProductDetails({
   params,
@@ -52,7 +53,7 @@ export default async function ProductDetails({
 
   const data = await response.json();
   const product: ProdI = data.data;
-  console.log(product);
+  console.log(product , "My product");
 
   const products: ProdI[] = await getProducts();
 
@@ -110,18 +111,18 @@ export default async function ProductDetails({
             <div id="product-info" className="lg:w-3/4">
               <div className="bg-white rounded-xl shadow-sm p-6">
                 <div className="flex flex-wrap gap-2 mb-4">
-                  <a
+                  <Link
                     className="bg-primary-50 text-primary-700 text-xs px-3 py-1.5 rounded-full hover:bg-primary-100 transition"
-                    href="/categories/6439d58a0049ad0b52b9003f"
+                    href={`/categories/${product.category._id}`}
                   >
-                    Women's Fashion
-                  </a>
+                    {product.title}
+                  </Link>
                   <span className="bg-gray-100 text-gray-700 text-xs px-3 py-1.5 rounded-full">
-                    DeFacto
+                    {product.brand.name}
                   </span>
                 </div>
                 <h1 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
-                  Woman Shawl
+                  {product.title}
                 </h1>
                 <div className="flex items-center gap-1 flex-row">
                   {[0, 1, 2, 3, 4].map((star, index) => {
@@ -139,9 +140,9 @@ export default async function ProductDetails({
                   })}
                 </div>
                 <span className="text-sm text-gray-600">3.4 (5 reviews)</span>
-                <div className="flex items-center flex-wrap gap-3 mb-6">
+                <div className="flex items-center flex-wrap gap-3 my-3">
                   <span className="text-3xl font-bold text-gray-900">
-                    149 EGP
+                    {product.price} EGP
                   </span>
                 </div>
                 <div className="flex items-center gap-2 mb-6">
@@ -152,8 +153,7 @@ export default async function ProductDetails({
                 </div>
                 <div className="border-t border-gray-100 pt-5 mb-6">
                   <p className="text-gray-600 leading-relaxed">
-                    Material Polyester Blend Colour Name Multicolour Department
-                    Women
+                    {product.description}
                   </p>
                 </div>
                 <div className="mb-6">
@@ -171,7 +171,7 @@ export default async function ProductDetails({
                       </button>
                       <input
                         min={1}
-                        max={220}
+                        max={product.quantity}
                         className="w-16 text-center border-0 focus:ring-0 focus:outline-none text-lg font-medium"
                         id="quantity"
                         type="number"
@@ -184,26 +184,20 @@ export default async function ProductDetails({
                         <FaPlus />
                       </button>
                     </div>
-                    <span className="text-sm text-gray-500">220 available</span>
+                    <span className="text-sm text-gray-500">{product.quantity} available</span>
                   </div>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-4 mb-6">
                   <div className="flex justify-between items-center">
                     <span className="text-gray-600">Total Price:</span>
                     <span className="text-2xl font-bold text-primary">
-                      149.00 EGP
+                      {product.price} EGP
                     </span>
                   </div>
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-3 mb-6">
-                  <button
-                    id="add-to-cart"
-                    className="flex-1 text-white py-3.5 px-6 rounded-xl font-medium hover:bg-primary/80 active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-lg shadow-primary-600/25 bg-primary"
-                  >
-                    <FaShoppingCart />
-                    Add to Cart
-                  </button>
+                  <AddSpecificProdToCart prodID={product._id}/>
                   <button
                     id="buy-now"
                     className="flex-1 bg-gray-900 text-white py-3.5 px-6 rounded-xl font-medium hover:bg-gray-800 active:scale-[0.98] transition-all flex items-center justify-center gap-2"
@@ -214,13 +208,14 @@ export default async function ProductDetails({
                 </div>
 
                 <div className="flex gap-3 mb-6">
-                  <button
+                  <AddProdToWishlist prodID={product._id} />
+                  {/* <button
                     id="wishlist-button"
                     className="flex-1 border-2 py-3 px-4 rounded-xl font-medium transition flex items-center justify-center gap-2 border-gray-200 text-gray-700 hover:border-primary hover:text-primary"
                   >
                     <FaRegHeart />
                     Add to Wishlist
-                  </button>
+                  </button> */}
                   <button className="border-2 border-gray-200 text-gray-700 py-3 px-4 rounded-xl hover:border-primary hover:text-primary transition">
                     <FaShareNodes />
                   </button>

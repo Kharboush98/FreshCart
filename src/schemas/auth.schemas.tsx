@@ -36,3 +36,32 @@ password : z.string().nonempty("password is Required").min(8, "Password must be 
 })
 
 export type loginTypeSchema = z.infer<typeof loginSchema>
+
+
+export const ShippingSchema = z.object({
+  shippingAddress: z.object({
+    city: z
+      .string()
+      .nonempty("City name is Required")
+      .min(3, "City name must be at least 3 characters.")
+      .max(12, "City name must be at most 12 characters."),
+
+    details: z
+      .string()
+      .nonempty("details are Required")
+      .min(3, "details must be at least 3 characters.")
+      .max(50, "details must be at most 12 characters."),
+
+    phone: z
+      .string()
+      .nonempty("Phone is required")
+      .regex(/^01[0125][0-9]{8}$/ , "Cannot be more than that!"),
+
+    postalCode: z
+      .string()
+      .nonempty("Postal Code is Required")
+      .regex(/^[0-9]{5}$/ , "Must only be 5 digits"),
+  }),
+});
+
+export type ShippingTypeSchema = z.infer<typeof ShippingSchema>

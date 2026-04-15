@@ -1,18 +1,20 @@
+import { getCategories } from '@/lib/api';
 import { CategoryI } from '@/types/categories';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaArrowRightLong } from 'react-icons/fa6';
 
 export default async function AllCategories() {
-    const response = await fetch("https://ecommerce.routemisr.com/api/v1/categories" , {
-            method: "GET",
-            cache: "force-cache",
-        })
+    // const response = await fetch("https://ecommerce.routemisr.com/api/v1/categories" , {
+    //         method: "GET",
+    //         cache: "force-cache",
+    //     })
     
-        const data = await response.json();
+    //     const data = await response.json();
         // console.log(data.data);
     
-        const categories : CategoryI[] = data.data;
+        const categories : CategoryI[] = await getCategories();
+        
 
   return (
     <>
@@ -25,18 +27,18 @@ export default async function AllCategories() {
                 Shop By <span className="text-primary">Category</span>
               </h2>
             </div>
-            <a
+            <Link
               className="text-primary self-end sm:self-auto hover:text-emerald-700 font-medium flex items-center gap-2 cursor-pointer"
               href="categories"
             >
               <span>View All Categories</span>
               <FaArrowRightLong />
-            </a>
+            </Link>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {
-                categories.map((cat)=>
+              categories && categories.map((cat)=>
             <Link
               className="bg-white rounded-lg p-4 text-center shadow-sm hover:shadow-md transition group cursor-pointer"
               href={`/categories/${cat._id}`}

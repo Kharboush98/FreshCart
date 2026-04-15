@@ -2,16 +2,21 @@ import { deleteProductFromCart, UpdateProductFromCart } from "@/actions/cart.act
 import { CartProductI, ProductI } from "@/types/cart.type";
 import { Button } from "@base-ui/react";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaCheck, FaMinus, FaPlus, FaTrash } from "react-icons/fa";
 import { toast } from "sonner";
 import { Spinner } from "../ui/spinner";
+import { CartContext } from "@/context/cart-provider";
+import Link from "next/link";
 
 
 export default function CartItem({ product , setProducts }: { product: CartProductI , setProducts:(products:CartProductI[])=> void }) {
 
     const [isLoading , setIsLoading] = useState(false)
     const [isLoadingUpdate , setIsLoadingUpdate] = useState(false)
+    
+
+    const {getCartData} = useContext(CartContext);
 
     async function removeProduct(prodId:string) {
 
@@ -20,6 +25,7 @@ export default function CartItem({ product , setProducts }: { product: CartProdu
             const response = await deleteProductFromCart(prodId)
             toast.success(response.message)
             setProducts(response.data.products)
+            getCartData()
         } catch (error) {
             console.log(error)
             toast.error((error as Error).message)
@@ -35,7 +41,7 @@ export default function CartItem({ product , setProducts }: { product: CartProdu
             const response = await UpdateProductFromCart(prodId , count);
             toast.success(response.message)
             setProducts(response.data.products)
-
+            getCartData()
         } catch (error) {
             console.log(error);
             toast.error((error as Error).message)
@@ -49,9 +55,9 @@ export default function CartItem({ product , setProducts }: { product: CartProdu
       <div className="relative bg-white rounded-2xl shadow-sm hover:shadow-md border border-gray-100 transition-all duration-300 ">
         <div className="p-4 sm:p-5">
           <div className="flex gap-4 sm:gap-6">
-            <a
+            <Link
               className="relative shrink-0 group"
-              href={`/products/${product._id}`}
+              href={`/products/${product.product._id}`}
             >
               <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-xl bg-linear-to-br from-gray-50 via-white to-gray-100 p-3 border border-gray-100 overflow-hidden">
                 <Image
@@ -66,17 +72,17 @@ export default function CartItem({ product , setProducts }: { product: CartProdu
                 <FaCheck />
                 In Stock
               </div>
-            </a>
+            </Link>
             <div className="flex-1 min-w-0 flex flex-col">
               <div className="mb-3">
-                <a
+                <Link
                   className="group/title"
-                  href={`/products/${product._id}`}
+                  href={`/products/${product.product._id}`}
                 >
                   <h3 className="font-semibold text-gray-900 group-hover/title:text-primary transition-colors leading-relaxed text-base sm:text-lg">
                     {product.product.title}
                   </h3>
-                </a>
+                </Link>
                 <div className="flex items-center gap-2 mt-2">
                   <span className="inline-block px-2.5 py-1 bg-linear-to-r from-primary-light to-emerald-50 text-primary text-xs font-medium rounded-full">
                     {product.product.category.name}
