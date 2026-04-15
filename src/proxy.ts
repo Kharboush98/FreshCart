@@ -15,20 +15,33 @@ export async function proxy(request: NextRequest) {
         secret: process.env.AUTH_SECRET,
     });
 
-    const isAuthPages = ["/login" , "/register"].includes(pathname)
-
-    if(token && isAuthPages)
-    {
-        return NextResponse.redirect(new URL('/', request.url))
-    } 
     
-    if(!token && !isAuthPages){
-        return NextResponse.redirect(new URL('/login', request.url))
+    
+    const isAuthPages = ["/login" , "/register"]
+    const protectedPages = ["/cart", "/wishlist", "/checkout"];
+    
+    if (token && isAuthPages.includes(pathname)) {
+        return NextResponse.redirect(new URL("/", request.url));
     }
+    
+    if (!token && protectedPages.includes(pathname)) {
+        return NextResponse.redirect(new URL("/login", request.url));
+    }
+    
+    // const isAuthPages = ["/login" , "/register"].includes(pathname)
+
+    // if(token && isAuthPages)
+    // {
+    //     return NextResponse.redirect(new URL('/', request.url))
+    // } 
+    
+    // if(!token && !isAuthPages){
+    //     return NextResponse.redirect(new URL('/login', request.url))
+    // }
 
     return NextResponse.next()
 }
  
 export const config = {
-  matcher: ["/login" , "/register" , "/cart" , "/wishlist" , "/brands"],
+  matcher: ["/login" , "/register" , "/cart" , "/wishlist" , "/brands" , "/checkout"],
 }
