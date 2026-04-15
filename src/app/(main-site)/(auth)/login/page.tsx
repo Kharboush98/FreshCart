@@ -52,7 +52,7 @@ export default function Login() {
         //     toast.error("User Log in Failed")
         // }
 
-
+        setIsSubmitting(true)
         const response = await signIn("credentials", {
             email: data.email,
             password : data.password,
@@ -62,22 +62,16 @@ export default function Login() {
 
         // console.log(response)
         
-
-        try {
           if (response?.ok)
           {
-              setIsSubmitting(true)
-              router.push("/")
-              toast.success("Logged in Successfully")
-          } else {
-              toast.error(response?.error || "User Log in Failed")
-          }
-        } catch (error) {
-            toast.error(response?.error || "User Log in Failed")
-
-        } finally {
+            router.push("/")
+            toast.success("Logged in Successfully")
             setIsSubmitting(false)
-        }
+          } else {
+            toast.error(response?.error || "User Log in Failed")
+            setIsSubmitting(false)
+          }
+        
     }
 
 
