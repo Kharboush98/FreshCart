@@ -1,7 +1,6 @@
 import { ProdI } from "@/types/postType";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 import { FaEye, FaPlus, FaRegHeart, FaRegStar, FaStar } from "react-icons/fa";
 import { FaArrowsRotate } from "react-icons/fa6";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';

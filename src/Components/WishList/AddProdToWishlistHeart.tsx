@@ -1,6 +1,6 @@
 "use client"
 import { addWishlistProduct } from '@/actions/wishlist.actions';
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { FaRegHeart } from 'react-icons/fa';
 import { toast } from 'sonner';
 import { Spinner } from '../ui/spinner';
