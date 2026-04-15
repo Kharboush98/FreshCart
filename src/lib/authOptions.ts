@@ -3,6 +3,10 @@ import Credentials from "next-auth/providers/credentials";
 import { jwtDecode, JwtPayload } from "jwt-decode"
 import { console } from "inspector";
 
+interface AuthJwt extends JwtPayload{
+  id?:string
+}
+
 export const authOptions: NextAuthOptions = {
     pages:{
         signIn: "/login"
@@ -28,11 +32,11 @@ export const authOptions: NextAuthOptions = {
 
         if(data.message == "success")
         {
-            const decodedToken = jwtDecode<JwtPayload>(data.token);
+            const decodedToken = jwtDecode<AuthJwt>(data.token);
             console.log(decodedToken , "decoded ttoken name");
 
             return {
-                id: decodedToken?.id,
+                id: decodedToken?.id ?? decodedToken?.sub ?? "",
                 user : data.user,
                 token : data.token,
             }
