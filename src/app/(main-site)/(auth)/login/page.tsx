@@ -22,10 +22,13 @@ import { toast } from 'sonner';
 
 import { signIn, signOut } from "next-auth/react";
 import Link from 'next/link';
+import { useState } from 'react';
+import { Spinner } from '@/components/ui/spinner';
     
 
 export default function Login() {
 
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const router = useRouter();
 
     const form = useForm({
@@ -58,12 +61,22 @@ export default function Login() {
         });
 
         // console.log(response)
-        if (response?.ok)
-        {
-            router.push("/")
-            toast.success("Logged in Successfully")
-        } else {
+        
+
+        try {
+          if (response?.ok)
+          {
+              setIsSubmitting(true)
+              router.push("/")
+              toast.success("Logged in Successfully")
+          } else {
+              toast.error(response?.error || "User Log in Failed")
+          }
+        } catch (error) {
             toast.error(response?.error || "User Log in Failed")
+
+        } finally {
+            setIsSubmitting(false)
         }
     }
 
@@ -202,7 +215,7 @@ export default function Login() {
                                     type="button"
                                     className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
                                     >
-                                    <FaEye className='text-gray-400' />
+                                    {/* <FaEye className='text-gray-400' /> */}
                                 </Button>
                             </div>
                             {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
@@ -226,7 +239,7 @@ export default function Login() {
                   type="submit"
                   className="w-full bg-primary text-white py-3 px-4 rounded-xl hover:bg-primary transition-all duration-200 font-semibold text-lg shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Sign In
+                  {isSubmitting ? <Spinner/> : "Sign In"}
                 </Button>
               </form>
               <div className="text-center mt-8 pt-6 border-t border-gray-100">

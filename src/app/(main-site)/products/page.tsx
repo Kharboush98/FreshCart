@@ -8,6 +8,7 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbP
 import { getProducts } from "@/lib/api";
 import { Button } from "@base-ui/react";
 import AddProductToCartFn from "@/components/cart/AddProductToCartFn";
+import AddProdToWishlistHeart from "@/components/WishList/AddProdToWishlistHeart";
 
 
 export default async function Products() {
@@ -62,13 +63,14 @@ export default async function Products() {
                             loading="lazy"
                         />
                         <div className="absolute top-3 right-3 flex flex-col space-y-2">
-                            <button
+                            <AddProdToWishlistHeart prodID={prod._id}/>
+                            {/* <button
                             className="bg-white h-8 w-8 rounded-full flex items-center justify-center transition shadow-sm text-gray-600 hover:text-red-500"
                             title="Add to wishlist"
                             tabIndex={0}
                             >
                             <FaRegHeart />
-                            </button>
+                            </button> */}
                             <button className="bg-white h-8 w-8 rounded-full flex items-center justify-center text-gray-600 hover:text-primary shadow-sm">
                             <FaArrowsRotate />
                             </button>
