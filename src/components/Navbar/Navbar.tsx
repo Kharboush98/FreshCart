@@ -224,7 +224,7 @@ export default function Navbar() {
               <div className="flex items-center gap-1 lg:gap-2">
                 <Link
                   className="hidden lg:flex items-center gap-2 pr-3 mr-2 border-r border-gray-200 hover:opacity-80 transition-opacity"
-                  href="/contact"
+                  href="/"
                 >
                   <div className="w-10 h-10 rounded-full bg-primary-lightest flex items-center justify-center">
                     <FaHeadset className="text-primary text-[18px]" />

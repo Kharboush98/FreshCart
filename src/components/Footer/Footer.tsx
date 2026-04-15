@@ -154,7 +154,7 @@ export default function Footer() {
                 <li>
                   <Link
                     className="text-gray-400 hover:text-primary-400 transition-colors text-sm"
-                    href="/products?category=6439d58a0049ad0b52b9003f"
+                    href="#"
                   >
                     Electronics
                   </Link>
@@ -162,7 +162,7 @@ export default function Footer() {
                 <li>
                   <Link
                     className="text-gray-400 hover:text-primary-400 transition-colors text-sm"
-                    href="/products?category=6439d2d167d9aa4ca970649f"
+                    href="#"
                   >
                     Men's Fashion
                   </Link>
@@ -170,7 +170,7 @@ export default function Footer() {
                 <li>
                   <Link
                     className="text-gray-400 hover:text-primary-400 transition-colors text-sm"
-                    href="/products?category=6439d5b90049ad0b52b90048"
+                    href="#"
                   >
                     Women's Fashion
                   </Link>
@@ -191,7 +191,7 @@ export default function Footer() {
                 <li>
                   <Link
                     className="text-gray-400 hover:text-primary-400 transition-colors text-sm"
-                    href="/profile/orders"
+                    href="#"
                   >
                     Order History
                   </Link>
@@ -199,7 +199,7 @@ export default function Footer() {
                 <li>
                   <Link
                     className="text-gray-400 hover:text-primary-400 transition-colors text-sm"
-                    href="/wishlist"
+                    href="#"
                   >
                     Wishlist
                   </Link>
@@ -207,7 +207,7 @@ export default function Footer() {
                 <li>
                   <Link
                     className="text-gray-400 hover:text-primary-400 transition-colors text-sm"
-                    href="/cart"
+                    href="#"
                   >
                     Shopping Cart
                   </Link>
@@ -215,7 +215,7 @@ export default function Footer() {
                 <li>
                   <Link
                     className="text-gray-400 hover:text-primary-400 transition-colors text-sm"
-                    href="/login"
+                    href="#"
                   >
                     Sign In
                   </Link>
@@ -223,7 +223,7 @@ export default function Footer() {
                 <li>
                   <Link
                     className="text-gray-400 hover:text-primary-400 transition-colors text-sm"
-                    href="/register"
+                    href="#"
                   >
                     Create Account
                   </Link>
@@ -236,7 +236,7 @@ export default function Footer() {
                 <li>
                   <Link
                     className="text-gray-400 hover:text-primary-400 transition-colors text-sm"
-                    href="/contact"
+                    href="/"
                   >
                     Contact Us
                   </Link>
@@ -244,7 +244,7 @@ export default function Footer() {
                 <li>
                   <Link
                     className="text-gray-400 hover:text-primary-400 transition-colors text-sm"
-                    href="/help"
+                    href="#"
                   >
                     Help Center
                   </Link>
@@ -252,7 +252,7 @@ export default function Footer() {
                 <li>
                   <Link
                     className="text-gray-400 hover:text-primary-400 transition-colors text-sm"
-                    href="/shipping"
+                    href="#"
                   >
                     Shipping Info
                   </Link>
@@ -260,7 +260,7 @@ export default function Footer() {
                 <li>
                   <Link
                     className="text-gray-400 hover:text-primary-400 transition-colors text-sm"
-                    href="/returns"
+                    href="#"
                   >
                     Returns &amp; Refunds
                   </Link>
@@ -268,7 +268,7 @@ export default function Footer() {
                 <li>
                   <Link
                     className="text-gray-400 hover:text-primary-400 transition-colors text-sm"
-                    href="/track-order"
+                    href="#"
                   >
                     Track Order
                   </Link>
@@ -281,7 +281,7 @@ export default function Footer() {
                 <li>
                   <Link
                     className="text-gray-400 hover:text-primary-400 transition-colors text-sm"
-                    href="/privacy"
+                    href="#"
                   >
                     Privacy Policy
                   </Link>
@@ -289,7 +289,7 @@ export default function Footer() {
                 <li>
                   <Link
                     className="text-gray-400 hover:text-primary-400 transition-colors text-sm"
-                    href="/terms"
+                    href="#"
                   >
                     Terms of Service
                   </Link>
@@ -297,7 +297,7 @@ export default function Footer() {
                 <li>
                   <Link
                     className="text-gray-400 hover:text-primary-400 transition-colors text-sm"
-                    href="/cookies"
+                    href="#"
                   >
                     Cookie Policy
                   </Link>
