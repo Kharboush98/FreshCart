@@ -241,7 +241,7 @@ export default function Login() {
                   New to FreshCart?
                   <Link
                     className="text-primary hover:text-primary ms-2 font-semibold cursor-pointer"
-                    href="/signup"
+                    href="/register"
                   >
                     Create an account
                   </Link>
