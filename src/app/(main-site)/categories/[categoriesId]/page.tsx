@@ -43,7 +43,7 @@ export default async function CategoryDetails({
                 <BreadcrumbItem>
                   <BreadcrumbLink
                     render={
-                      <Link className="text-white" href="/Categories">
+                      <Link className="text-white" href="/categories">
                         Categories
                       </Link>
                     }
@@ -102,7 +102,7 @@ export default async function CategoryDetails({
             <Link
               key={subcategory._id}
               className="group bg-white rounded-2xl border border-gray-100 p-6 shadow-sm hover:shadow-xl hover:border-green-200 transition-all duration-300 hover:-translate-y-1"
-              href={`/#`}
+              href={`/products?subcategory=${subcategory._id}`}
             >
               <div className="w-14 h-14 text-primary text-2xl rounded-xl bg-green-50 flex items-center justify-center mb-4 group-hover:bg-green-100 transition-colors">
                 <FaFolderOpen />
