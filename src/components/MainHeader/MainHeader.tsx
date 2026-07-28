@@ -33,7 +33,7 @@ export default function MainHeader() {
               style={{ backgroundImage: `url(${MainImg.src})` }}
             >
               <div className="overlay py-20 text-white p-4 w-full h-full bg-linear-to-r from-green-500/90 to-green-400/50">
-                <div className="container px-15 mx-auto h-full content-center">
+                <div className="container px-15 mx-auto h-full content-center text-fade-in">
                   <h2 className="text-3xl font-bold mb-4 max-w-96">
                     Fast & Free Delivery
                   </h2>
@@ -58,7 +58,7 @@ export default function MainHeader() {
               style={{ backgroundImage: `url(${MainImg.src})` }}
             >
               <div className="overlay py-20 text-white p-4 w-full h-full bg-linear-to-r from-green-500/90 to-green-400/50">
-                <div className="container px-15 mx-auto h-full content-center">
+                <div className="container px-15 mx-auto h-full content-center text-fade-in">
                   <h2 className="text-3xl font-bold mb-4 max-w-96">
                     Fresh Products Delivered to your Door
                   </h2>
@@ -83,7 +83,7 @@ export default function MainHeader() {
               style={{ backgroundImage: `url(${MainImg.src})` }}
             >
               <div className="overlay py-20 text-white p-4 w-full h-full bg-linear-to-r from-green-500/90 to-green-400/50">
-                <div className="container px-15 mx-auto h-full content-center">
+                <div className="container px-15 mx-auto h-full content-center text-fade-in">
                   <h2 className="text-3xl font-bold mb-4 max-w-96">
                     Premium Quality Guaranteed
                   </h2>
@@ -116,8 +116,8 @@ export default function MainHeader() {
         <div className="container px-6 mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             <div
-              className="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300"
-              style={{ opacity: 1, transform: "none" }}
+              className="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 card-fade-up1"
+              // style={{ opacity: 1, transform: "none" }}
             >
               <div className="bg-blue-50 text-2xl text-blue-500 w-12 h-12 rounded-full flex items-center justify-center shrink-0">
                 <FaTruck />
@@ -130,8 +130,8 @@ export default function MainHeader() {
               </div>
             </div>
             <div
-              className="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300"
-              style={{ opacity: 1, transform: "none" }}
+              className="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 card-fade-up2"
+              // style={{ opacity: 1, transform: "none" }}
             >
               <div className="bg-emerald-50 text-2xl text-emerald-500 w-12 h-12 rounded-full flex items-center justify-center shrink-0">
                 <FaShieldAlt/>
@@ -146,8 +146,8 @@ export default function MainHeader() {
               </div>
             </div>
             <div
-              className="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300"
-              style={{ opacity: 1, transform: "none" }}
+              className="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 card-fade-up3"
+              // style={{ opacity: 1, transform: "none" }}
             >
               <div className="bg-orange-50 text-2xl text-orange-500 w-12 h-12 rounded-full flex items-center justify-center shrink-0">
                 <FaArrowRotateLeft/>
@@ -160,8 +160,8 @@ export default function MainHeader() {
               </div>
             </div>
             <div
-              className="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300"
-              style={{ opacity: 1, transform: "none" }}
+              className="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 card-fade-up4"
+              // style={{ opacity: 1, transform: "none" }}
             >
               <div className="bg-purple-50 text-2xl text-purple-500 w-12 h-12 rounded-full flex items-center justify-center shrink-0">
                 <FaHeadset/>

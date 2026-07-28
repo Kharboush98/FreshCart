@@ -160,3 +160,66 @@ body {
     @apply font-sans;
   }
 }
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.text-fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.swiper-slide-active .text-fade-in {
+  animation: fadeSlideUp 0.8s ease-out forwards;
+}
+
+.card-fade-up1 {
+  animation: fadeSlideUp 0.4s ease-out forwards;
+}
+.card-fade-up2 {
+  animation: fadeSlideUp 0.8s ease-out forwards;
+}
+.card-fade-up3 {
+  animation: fadeSlideUp 1s ease-out forwards;
+}
+.card-fade-up4 {
+  animation: fadeSlideUp 1.4s ease-out forwards;
+}
+
+@keyframes fadeSlideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.card-fade-inLeft {
+  animation: fadeSlideLeft 0.8s ease-out forwards;
+}
+
+@keyframes fadeSlideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.card-fade-inRight {
+  animation: fadeSlideRight 0.8s ease-out forwards;
+}

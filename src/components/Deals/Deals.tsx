@@ -1,16 +1,47 @@
+"use client"
 import Link from 'next/link';
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { FaArrowRightLong } from 'react-icons/fa6';
 
 export default function Deals() {
+
+  const leftCardRef = useRef<HTMLDivElement>(null);
+  const rightCardRef = useRef<HTMLDivElement>(null);
+
+  const [leftVisible, setLeftVisible] = useState(false);
+  const [rightVisible, setRightVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.target === leftCardRef.current && entry.isIntersecting) {
+            setLeftVisible(true);
+          }
+          if (entry.target === rightCardRef.current && entry.isIntersecting) {
+            setRightVisible(true);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    if (leftCardRef.current) observer.observe(leftCardRef.current);
+    if (rightCardRef.current) observer.observe(rightCardRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       <section className="py-10">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-6">
             <div
-              className="relative overflow-hidden rounded-2xl bg-linear-to-br from-emerald-500 to-emerald-700 p-8 text-white"
-              style={{ opacity: 1, transform: "none" }}
+              ref = {leftCardRef}
+              className= {`relative overflow-hidden rounded-2xl bg-linear-to-br from-emerald-500 to-emerald-700 p-8
+               text-white  ${leftVisible ? "card-fade-inRight" : "opacity-10"}`}
+              // style={{ opacity: 1, transform: "none" }}
             >
               <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
               <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/2" />
@@ -41,9 +72,13 @@ export default function Deals() {
                 </Link>
               </div>
             </div>
+
             <div
-              className="relative overflow-hidden rounded-2xl bg-linear-to-br from-orange-400 to-rose-500 p-8 text-white"
-              style={{ opacity: 1, transform: "none" }}
+            ref={rightCardRef}
+              className={`relative overflow-hidden rounded-2xl bg-linear-to-br from-orange-400 to-rose-500 p-8
+               text-white ${rightVisible ? "card-fade-inLeft" : "opacity-10"}`}
+              // style={{ opacity: 1, transform: "none" }}
+              
             >
               <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
               <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/2" />
