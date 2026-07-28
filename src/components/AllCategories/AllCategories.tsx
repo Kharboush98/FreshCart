@@ -19,7 +19,7 @@ export default async function AllCategories() {
   return (
     <>
       <section id="categories" className="py-10">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6">
           <div className="flex flex-col sm:flex-row justify-between sm:items-center mb-8">
             <div className="flex  items-center gap-3 my-8">
               <div className="h-8 w-1.5 bg-linear-to-b from-primary to-emerald-700 rounded-full" />

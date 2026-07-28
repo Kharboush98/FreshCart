@@ -33,7 +33,7 @@ export default function MainHeader() {
               style={{ backgroundImage: `url(${MainImg.src})` }}
             >
               <div className="overlay py-20 text-white p-4 w-full h-full bg-linear-to-r from-green-500/90 to-green-400/50">
-                <div className="container mx-auto h-full content-center">
+                <div className="container px-15 mx-auto h-full content-center">
                   <h2 className="text-3xl font-bold mb-4 max-w-96">
                     Fast & Free Delivery
                   </h2>
@@ -58,7 +58,7 @@ export default function MainHeader() {
               style={{ backgroundImage: `url(${MainImg.src})` }}
             >
               <div className="overlay py-20 text-white p-4 w-full h-full bg-linear-to-r from-green-500/90 to-green-400/50">
-                <div className="container mx-auto h-full content-center">
+                <div className="container px-15 mx-auto h-full content-center">
                   <h2 className="text-3xl font-bold mb-4 max-w-96">
                     Fresh Products Delivered to your Door
                   </h2>
@@ -83,7 +83,7 @@ export default function MainHeader() {
               style={{ backgroundImage: `url(${MainImg.src})` }}
             >
               <div className="overlay py-20 text-white p-4 w-full h-full bg-linear-to-r from-green-500/90 to-green-400/50">
-                <div className="container mx-auto h-full content-center">
+                <div className="container px-15 mx-auto h-full content-center">
                   <h2 className="text-3xl font-bold mb-4 max-w-96">
                     Premium Quality Guaranteed
                   </h2>
@@ -113,7 +113,7 @@ export default function MainHeader() {
       </div>
 
       <section className="py-8 bg-gray-50">
-        <div className="container mx-auto">
+        <div className="container px-6 mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             <div
               className="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300"

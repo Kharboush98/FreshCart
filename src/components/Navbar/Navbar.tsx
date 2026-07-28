@@ -31,7 +31,7 @@ export default function Navbar() {
   return (
     <>
       <div className="hidden lg:block text-sm border-b border-gray-100">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-8">
           <div className="flex justify-between items-center h-10">
             <div className="flex items-center gap-6 text-gray-500">
               <span className="flex items-center gap-2">
@@ -113,7 +113,7 @@ export default function Navbar() {
 
       <header className="sticky top-0 z-40 bg-white shadow-sm">
         <div className="bg-white">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto px-8">
             <div className="flex items-center justify-between h-16 lg:h-18 gap-4 lg:gap-8">
               <Link
                 className="flex items-center justify-start align-items-center gap-2 shrink-0"

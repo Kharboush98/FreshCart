@@ -6,7 +6,7 @@ export default function Deals() {
   return (
     <>
       <section className="py-10">
-        <div className="container mx-auto">
+        <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-6">
             <div
               className="relative overflow-hidden rounded-2xl bg-linear-to-br from-emerald-500 to-emerald-700 p-8 text-white"

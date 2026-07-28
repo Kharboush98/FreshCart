@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <>
       <div className="bg-primary-lightest border-y border-primary-light">
-        <div className="container mx-auto px-4 py-6">
+        <div className="container mx-auto px-6 py-6">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-xl bg-primary-light flex items-center justify-center shrink-0">
@@ -59,7 +59,7 @@ export default function Footer() {
       </div>
 
       <footer id="footer" className="bg-gray-900 text-white">
-        <div className="container mx-auto px-4 py-12">
+        <div className="container mx-auto px-6 py-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
             <div className="lg:col-span-4">
               <Link className="inline-block mb-6" href="/">
@@ -307,7 +307,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-gray-800">
-          <div className="container mx-auto px-4 py-6">
+          <div className="container mx-auto px-6 py-6">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-gray-500 text-sm text-center md:text-left">
                 © 2026 FreshCart. All rights reserved.
